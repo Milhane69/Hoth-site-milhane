@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const background = document.querySelector('.background');
 
-    for (let i = 0; i < 100; i++) {
+    // Créer moins d'étoiles pour les écrans plus petits
+    const numStars = window.innerWidth > 600 ? 100 : 50;
+    for (let i = 0; i < numStars; i++) {
         createStar();
     }
 
@@ -23,6 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const asteroidsContainer = document.getElementById("asteroids-container");
 
+    // Ajuster le nombre d'astéroïdes pour les mobiles
+    const numAsteroids = window.innerWidth > 600 ? 5 : 3;
+    for (let i = 0; i < numAsteroids; i++) {
+        createAsteroid();
+    }
+
     function createAsteroid() {
         const asteroid = document.createElement("div");
         asteroid.className = "asteroid";
@@ -40,8 +48,5 @@ document.addEventListener("DOMContentLoaded", function () {
         const animationDuration = Math.floor(Math.random() * (4 - 2 + 1) + 2);
         asteroid.style.animation = `moveAsteroid ${animationDuration}s linear infinite`;
     }
-
-    for (let i = 0; i < 5; i++) {
-        createAsteroid();
-    }
 });
+
