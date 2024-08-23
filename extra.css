@@ -1,0 +1,100 @@
+/* Style général */
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a192f;
+    color: #66fcf1;
+    overflow: hidden;
+    z-index: 1; /* Position arrière */
+}
+
+.content {
+    position: relative;
+    z-index: 2; /* Position avant */
+    text-align: center;
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+.animate-text {
+    opacity: 0;
+    animation: fadeIn 1s forwards, moveUp 1s forwards 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    background-color: #88939a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    overflow: hidden;
+    z-index: 0; /* Position arrière */
+}
+
+.crater {
+    width: 5px;
+    height: 5px;
+    background-color: #736b84;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.moon .crater:nth-child(1) { top: 20px; left: 60px; }
+.moon .crater:nth-child(2) { top: 70px; left: 30px; }
+.moon .crater:nth-child(3) { top: 40px; left: 80px; }
+.moon .crater:nth-child(4) { top: 90px; left: 50px; }
+
+.asteroids {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Position arrière */
+}
+
+.asteroid {
+    width: 20px;
+    height: 20px;
+    background-color: #5e5e5e;
+    border-radius: 50%;
+    position: absolute;
+    animation: moveAsteroid 4s linear infinite;
+}
+
+@keyframes moveAsteroid {
+    0% { transform: translateX(100vw) scale(1); opacity: 1; }
+    50% { transform: translateX(-100vw) scale(1.5); opacity: 0.5; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+}
