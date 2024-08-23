@@ -4,31 +4,29 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
-/* Mise à jour du conteneur de fond pour être responsive */
+/* Mise à jour du conteneur de fond pour être fixe */
 .background {
-    position: fixed;
+    position: fixed; /* L'arrière-plan est fixé */
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: #0a192f;
     color: #66fcf1;
     overflow: hidden;
     z-index: 1; /* Position arrière */
 }
 
-.content {
+.content-container {
     position: relative;
     z-index: 2; /* Position avant */
-    text-align: center;
-    color: #ffffff;
+    max-width: 100%; /* Assure que le contenu ne déborde pas horizontalement */
+    margin: 0 auto;
     padding: 20px;
     box-sizing: border-box; /* Inclure le padding dans la largeur totale */
+    overflow-y: auto; /* Permet le défilement vertical */
+    height: 100vh; /* Utilise toute la hauteur de l'écran */
 }
 
 /* Assurez-vous que le texte est lisible sur mobile */
@@ -110,6 +108,10 @@ body, html {
 
     .powerbi-container {
         height: 50vh; /* Réduire la hauteur du Power BI sur mobile */
+    }
+
+    .content-container {
+        padding: 10px; /* Réduire le padding sur mobile */
     }
 }
 
